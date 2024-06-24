@@ -10,18 +10,42 @@ h1 {
   color: #333;
 }
 
+#listaUsuarios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; 
+  justify-content: center; 
+  padding: 10px;
+}
+
 .userinfo {
   list-style-type: none;
   border: 2px solid lightgrey;
   border-radius: 5px;
+  padding: 10px;
+  margin: 10px 120px 10px 10px;
 }
 
 .userdiv {
   background-color: white;
   border: 2px solid lightgrey;
   border-radius: 5px;
+  width: calc(25% - 20px);
+  position: relative;
 }
 
 b {
   font-weight: bold;
+}
+
+.userdiv img {
+  width: 100px;
+  position: absolute;
+  top: 10px; 
+  right: 10px;
+}
+
+.userdiv p {
+  padding-left: 10px;
+  margin: 10px;
 }

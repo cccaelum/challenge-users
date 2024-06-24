@@ -9,20 +9,24 @@ fetch('https://jsonplaceholder.typicode.com/users')
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
       .then(data => {
-        let users = data;  // Get all users from the response
+        let users = data.map(user => ({
+          ...user,
+          age: Math.floor(Math.random() * 31) + 20 
+        }));
+  
         users.forEach(user => {
           const template = `
             <div class='userdiv'>
-              <img src="" alt=""></img>
+              <img src="assets/img/${user.id}.jpeg" alt="${user.name}"></img>
               <ul class='userinfo'>
                 <li><b>Nombre</b>: ${user.name}</li>
-                <li><b>Edad</b>:</li> 
+                <li><b>Edad</b>: ${user.age}</li>
                 <li><b>Username</b>: ${user.username}</li>
                 <li><b>Teléfono</b>: ${user.phone}</li>
                 <li><b>Email</b>: ${user.email}</li>
               </ul>
               <p><b>Compañía</b>: ${user.company.name}</p>
-              <p><b>Dirección</b>: ${user.address.street}, ${user.address.city}</p>
+              <p><b>Dirección</b>: ${user.address.street}, ${user.address.suite}, ${user.address.city}</p>
             </div>
           `;
           userList.innerHTML += template; 
